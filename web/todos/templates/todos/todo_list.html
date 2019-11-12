@@ -1,0 +1,24 @@
+{% extends 'todos/base.html' %}
+{% block content %}
+
+<table class="table table-striped table-responsive table-bordered">
+    
+    <thead>
+        <tr>
+            <th>Todo</th>
+            <th>Done</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo in object_list %}
+        <tr>
+            <td>{{ todo.todo }}</td>
+            <td>{{ todo.done }}</td>
+        </tr>
+        {% empty %}
+        <td> Nothing Here yet </td>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

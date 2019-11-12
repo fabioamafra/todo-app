@@ -1,0 +1,10 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class='btn btn-primary btn-lg ' name='todo_submit' type='submit' value='Submit'/>
+</form>
+
+{% endblock %}
