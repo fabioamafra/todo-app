@@ -5,20 +5,38 @@
     
     <thead>
         <tr>
+            <th>Id</th>
             <th>Todo</th>
             <th>Done</th>
+            <th>Editar</th>
+            <th>Deletar</th>
         </tr>
     </thead>
     <tbody>
         {% for todo in object_list %}
         <tr>
-            <td>{{ todo.todo }}</td>
+            <td>{{ todo.id }}</td>            
+            <td><a href="{% url 'todos:todo_detail' todo.id %}">{{ todo.todo }}</a></td>
             <td>{{ todo.done }}</td>
+            <td><a href="{% url 'todos:todo_update' todo.id %}">
+                <i class="material-icons">
+                    edit
+                </i>
+                </a>
+            </td>
+            <td><a href="{% url 'todos:todo_delete' todo.id %}">
+                <i class="material-icons">
+                    delete_sweep
+                </i>
+            </a></td>
+            <td>{{ todo.editar }}</td>
+            <td>{{ todo.deletar }}</td>
         </tr>
         {% empty %}
         <td> Nothing Here yet </td>
         {% endfor %}
     </tbody>
 </table>
+<a href="{% url 'todos:todo_new' %}" role='button' class='btn btn-primary btn-lg'>NOVO botao</a>
 
 {% endblock %}
